@@ -35,9 +35,10 @@ app.get("/callback", async (req, res) => {
       { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
     );
 
+    const {access_token, refresh_token, expires_in} = response.data;
     // Send tokens (access + refresh) to frontend
     //res.json(response.data);
-    res.redirect(`https://ftmusic.vercel.app?access_token=${access_token}&refresh_token=${refresh_token}&expires_in=${expires_in}`)
+    res.redirect(`https://ftmusic.vercel.app/?access_token=${access_token}&refresh_token=${refresh_token}&expires_in=${expires_in}`)
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
