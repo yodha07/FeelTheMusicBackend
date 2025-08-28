@@ -40,6 +40,10 @@ app.get("/callback", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the Music Visualizer API");
+})
+
 app.listen(5000, () => {
     console.log("App listening");
 });
